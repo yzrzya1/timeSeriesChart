@@ -47,6 +47,7 @@ function App() {
 
 ## 📚 Documentation
 
+- [Live Demo](https://yzrzya1.github.io/timeSeriesChart/) - Interactive dashboard example
 - [API Documentation](./docs/API.md) - Complete API reference
 - [Examples](./examples) - Live examples and use cases
 - [Migration Guide](./docs/MIGRATION.md) - Upgrading from previous versions
@@ -110,6 +111,7 @@ MIT © Your Organization
 
 ## 🙋 Support
 
+- 🌐 [Live Demo](https://yzrzya1.github.io/timeSeriesChart/) - Try the interactive dashboard
 - 📖 [Documentation](https://docs.yourorg.com)
 - 💬 [Discord Community](https://discord.gg/yourorg)
 - 🐛 [Issue Tracker](https://github.com/yourorg/react-dashboard-ui/issues)
