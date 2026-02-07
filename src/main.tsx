@@ -1,6 +1,16 @@
 import React, { useState, ReactNode } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
+} from 'recharts';
+import {
   mockCpuData,
   mockMemoryData,
   mockNetworkData,
@@ -63,11 +73,35 @@ const TimeSeriesChart: React.FC<TimeSeriesChartProps> = ({ data, title, yAxisLab
         borderRadius: '4px',
         minHeight: '200px'
       }}>
-        <div style={{ textAlign: 'center', color: '#999' }}>
-          <p>Chart Component Placeholder</p>
-          <p style={{ fontSize: '12px' }}>Data points: {data.length}</p>
-          <p style={{ fontSize: '12px' }}>Y-Axis: {yAxisLabel}</p>
-        </div>
+        <ResponsiveContainer width="100%" height={250}>
+          <LineChart data={data} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+            <XAxis 
+              dataKey="label" 
+              tick={{ fontSize: 12 }}
+              tickFormatter={(value) => {
+                const date = new Date(value);
+                return `${date.getMonth() + 1}/${date.getDate()}`;
+              }}
+            />
+            <YAxis 
+              label={{ value: yAxisLabel, angle: -90, position: 'insideLeft' }}
+              tick={{ fontSize: 12 }}
+            />
+            <Tooltip 
+              contentStyle={{ backgroundColor: 'white', border: `2px solid ${color}` }}
+              formatter={(value: any) => [`${value}`, yAxisLabel]}
+            />
+            <Line 
+              type="monotone" 
+              dataKey="value" 
+              stroke={color} 
+              strokeWidth={2}
+              dot={{ fill: color, r: 4 }}
+              activeDot={{ r: 6 }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );
