@@ -2,6 +2,7 @@
   "name": "@yourorg/react-dashboard-ui",
   "version": "1.0.0",
   "description": "A comprehensive React component library for building interactive dashboards with drag-and-drop capabilities and time-series data visualization",
+  "homepage": "https://yzrzya1.github.io/timeSeriesChart",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -11,8 +12,9 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "lint": "eslint src --ext .ts,.tsx",
@@ -43,6 +45,7 @@
     "eslint-plugin-react": "^7.33.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.0.0",
+    "gh-pages": "^6.1.0",
     "@storybook/react": "^7.4.0",
     "@storybook/addon-essentials": "^7.4.0",
     "@storybook/addon-interactions": "^7.4.0"
@@ -72,6 +75,5 @@
   },
   "bugs": {
     "url": "https://github.com/yourorg/react-dashboard-ui/issues"
-  },
-  "homepage": "https://github.com/yourorg/react-dashboard-ui#readme"
+  }
 }
