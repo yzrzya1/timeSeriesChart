@@ -1,0 +1,76 @@
+{
+  "name": "@yourorg/react-dashboard-ui",
+  "version": "1.0.0",
+  "description": "A comprehensive React component library for building interactive dashboards with drag-and-drop capabilities and time-series data visualization",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "type-check": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recharts": "^2.10.0",
+    "date-fns": "^2.30.0",
+    "react-grid-layout": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/react-grid-layout": "^1.3.5",
+    "@vitejs/plugin-react": "^4.1.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.1.0",
+    "typescript": "^5.2.0",
+    "vite": "^4.4.0",
+    "vitest": "^0.34.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.0",
+    "@storybook/react": "^7.4.0",
+    "@storybook/addon-essentials": "^7.4.0",
+    "@storybook/addon-interactions": "^7.4.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "keywords": [
+    "react",
+    "dashboard",
+    "ui",
+    "components",
+    "charts",
+    "time-series",
+    "drag-and-drop",
+    "grid-layout",
+    "visualization",
+    "monitoring",
+    "analytics"
+  ],
+  "author": "Your Organization",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourorg/react-dashboard-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/yourorg/react-dashboard-ui/issues"
+  },
+  "homepage": "https://github.com/yourorg/react-dashboard-ui#readme"
+}
