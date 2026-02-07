@@ -1,5 +1,17 @@
 import React, { useState, ReactNode } from 'react';
 import ReactDOM from 'react-dom/client';
+import {
+  mockCpuData,
+  mockMemoryData,
+  mockNetworkData,
+  mockDiskData,
+  mockMultiCpuData,
+  mockTemperatureData,
+  mockServiceData,
+  mockLatencyData,
+  mockErrorRateData,
+  mockConnectionsData
+} from './mockData';
 
 /**
  * Main entry point for the React Dashboard UI example
@@ -28,21 +40,6 @@ interface GridItemProps {
   children: ReactNode;
   id: string;
 }
-
-// Mock data generator
-const generateMockData = (baseTime: number = Date.now(), points: number = 24): DataPoint[] => {
-  const data: DataPoint[] = [];
-  const interval = 60 * 60 * 1000; // 1 hour intervals
-  
-  for (let i = 0; i < points; i++) {
-    data.push({
-      timestamp: baseTime - (points - i - 1) * interval,
-      value: Math.floor(Math.random() * 100),
-      label: new Date(baseTime - (points - i - 1) * interval).toLocaleString()
-    });
-  }
-  return data;
-};
 
 // Basic TimeSeriesChart component (placeholder)
 const TimeSeriesChart: React.FC<TimeSeriesChartProps> = ({ data, title, yAxisLabel, color = '#8884d8' }) => {
@@ -97,9 +94,14 @@ const GridItem: React.FC<GridItemProps> = ({ children, id }) => {
 
 // Main App Component
 export default function App() {
-  const [cpuData] = useState(() => generateMockData());
-  const [memoryData] = useState(() => generateMockData());
-  const [networkData] = useState(() => generateMockData());
+  const [cpuData] = useState(() => mockCpuData);
+  const [memoryData] = useState(() => mockMemoryData);
+  const [networkData] = useState(() => mockNetworkData);
+  const [diskData] = useState(() => mockDiskData);
+  const [temperatureData] = useState(() => mockTemperatureData);
+  const [multiCpuData] = useState(() => mockMultiCpuData);
+  const [serviceData] = useState(() => mockServiceData);
+  const [latencyData] = useState(() => mockLatencyData);
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
@@ -147,6 +149,51 @@ export default function App() {
               title="🌐 Network I/O"
               yAxisLabel="Mbps"
               color="#45B7D1"
+            />
+          </GridItem>
+
+          <GridItem id="disk-chart">
+            <TimeSeriesChart
+              data={diskData}
+              title="💿 Disk I/O"
+              yAxisLabel="Activity %"
+              color="#FFA502"
+            />
+          </GridItem>
+
+          <GridItem id="temperature-chart">
+            <TimeSeriesChart
+              data={temperatureData}
+              title="🌡️ Temperature"
+              yAxisLabel="Celsius"
+              color="#FF8C94"
+            />
+          </GridItem>
+
+          <GridItem id="latency-chart">
+            <TimeSeriesChart
+              data={latencyData}
+              title="⏱️ Response Latency"
+              yAxisLabel="Milliseconds"
+              color="#A8E6CF"
+            />
+          </GridItem>
+
+          <GridItem id="error-rate-chart">
+            <TimeSeriesChart
+              data={mockErrorRateData}
+              title="❌ Error Rate"
+              yAxisLabel="Percentage %"
+              color="#FF6B6B"
+            />
+          </GridItem>
+
+          <GridItem id="connections-chart">
+            <TimeSeriesChart
+              data={mockConnectionsData}
+              title="🔗 Active Connections"
+              yAxisLabel="Count"
+              color="#4ECDC4"
             />
           </GridItem>
         </Dashboard>
