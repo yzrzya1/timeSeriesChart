@@ -63,7 +63,7 @@ export interface ChartTheme {
   panelBg: string;
 }
 
-/** Ready-to-use dark theme that matches a Grafana-style dark dashboard. */
+/** Ready-to-use dark theme that matches a timeSeries-style dark dashboard. */
 export const darkTheme: ChartTheme = {
   textColor:     '#d9d9d9',
   mutedColor:    '#8e8e8e',

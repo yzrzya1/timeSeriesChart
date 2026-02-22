@@ -78,7 +78,7 @@ export default function App() {
   const { w: gridWidth } = useSize(containerRef as React.RefObject<HTMLElement>);
 
   const [layout, setLayout] = useState(() => {
-    try { return JSON.parse(localStorage.getItem('grafana-layout') ?? '') || DEFAULT_LAYOUT; }
+    try { return JSON.parse(localStorage.getItem('timeSeries-layout') ?? '') || DEFAULT_LAYOUT; }
     catch { return DEFAULT_LAYOUT; }
   });
 
@@ -89,7 +89,7 @@ export default function App() {
 
       {/* Header */}
       <div style={{ background: T.panel, borderBottom: `1px solid ${T.border}`, padding: '0 16px', display: 'flex', alignItems: 'center', height: 48 }}>
-        <span style={{ fontSize: 15, fontWeight: 600, flex: 1 }}>grafana-oncall-ops</span>
+        <span style={{ fontSize: 15, fontWeight: 600, flex: 1 }}>timeSeries-oncall-ops</span>
         <div style={{ display: 'flex', gap: 8 }}>
           {['Filters +', '⊙ Last 7 days ∨'].map(lbl => (
             <button key={lbl} style={{ background: 'transparent', border: `1px solid ${T.border}`, color: T.text, padding: '4px 10px', borderRadius: 3, cursor: 'pointer', fontSize: 12 }}>{lbl}</button>
@@ -133,7 +133,7 @@ export default function App() {
             cols={12}
             rowHeight={80}
             width={gridWidth}
-            onLayoutChange={l => { setLayout(l); localStorage.setItem('grafana-layout', JSON.stringify(l)); }}
+            onLayoutChange={l => { setLayout(l); localStorage.setItem('timeSeries-layout', JSON.stringify(l)); }}
             containerPadding={[0, 0]}
             margin={[8, 8]}
             isDraggable isResizable
